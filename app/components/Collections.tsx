@@ -7,26 +7,48 @@ import { motion, AnimatePresence } from 'framer-motion';
 /* ─── Data ───────────────────────────────────────────────────────────────── */
 const products = [
   {
-    id: 1,
-    name: 'Bartlett Pear',
-    scentFamily: 'FRUITY / FLORAL',
-    smellsLike: 'Sun-ripened pear with a whisper of soft white blossom.',
-    price: '$22.00',
-    reviews: 34,
+    id: 11,
+    name: 'Hawaiian Breeze',
+    scentFamily: 'FRESH / TROPICAL',
+    smellsLike: 'Sea salt air, white hibiscus, and a hint of sweet coconut.',
+    price: '$24.00',
+    reviews: 44,
     rating: 5,
     badge: 'BESTSELLER',
-    image: '/candles/bartlett-pear-v2.png',
+    image: '/candles/hawaiian-breeze-v4.png',
+  },
+  {
+    id: 9,
+    name: 'Coconut Macaroon',
+    scentFamily: 'GOURMAND / SWEET',
+    smellsLike: 'Toasted coconut, vanilla cream, and a soft caramel warmth.',
+    price: '$23.00',
+    reviews: 38,
+    rating: 5,
+    badge: 'NEW',
+    image: '/candles/coconut-macaroon-v4.png',
   },
   {
     id: 2,
     name: 'Coco Chanel Inspired',
     scentFamily: 'WARM / POWDERY',
     smellsLike: 'Powdery iris, soft musk, and timeless femininity.',
-    price: '$24.00',
+    price: '$23.00',
     reviews: 51,
     rating: 5,
     badge: 'BESTSELLER',
     image: '/candles/coco-chanel-v2.png',
+  },
+  {
+    id: 13,
+    name: 'Berry Berry',
+    scentFamily: 'SWEET / FRUITY',
+    smellsLike: 'Ripe strawberry, blackberry, and a sugared summer finish.',
+    price: '$24.00',
+    reviews: 26,
+    rating: 5,
+    badge: 'NEW',
+    image: '/candles/berry-berry-v3.png',
   },
   {
     id: 3,
@@ -40,26 +62,37 @@ const products = [
     image: '/candles/fresh-rose-v3.png',
   },
   {
-    id: 4,
-    name: 'Lavender',
-    scentFamily: 'HERBAL / CALMING',
-    smellsLike: 'Lavender fields, chamomile, and warm amber.',
-    price: '$20.00',
-    reviews: 21,
+    id: 12,
+    name: 'Jasmine',
+    scentFamily: 'FLORAL / CALMING',
+    smellsLike: 'Delicate jasmine petals with a warm, honeyed musky base.',
+    price: '$23.00',
+    reviews: 31,
     rating: 4.5,
-    badge: null,
-    image: '/candles/lavender-v4.png',
+    badge: 'BESTSELLER',
+    image: '/candles/jasmine-v5.png',
   },
   {
-    id: 5,
-    name: 'Polo Red',
-    scentFamily: 'FRUITY / FLORAL',
-    smellsLike: 'Pear blossom, gardenia, and a base of brown sugar.',
+    id: 10,
+    name: 'Mango Madness',
+    scentFamily: 'FRUITY / TROPICAL',
+    smellsLike: 'Sun-drenched mango, sparkling citrus, and a creamy finish.',
     price: '$24.00',
-    reviews: 19,
+    reviews: 29,
+    rating: 4.5,
+    badge: 'NEW',
+    image: '/candles/mango-madness-v4.png',
+  },
+  {
+    id: 1,
+    name: 'Bartlett Pear',
+    scentFamily: 'FRUITY / FLORAL',
+    smellsLike: 'Sun-ripened pear with a whisper of soft white blossom.',
+    price: '$22.00',
+    reviews: 34,
     rating: 5,
-    badge: 'BESTSELLER',
-    image: '/candles/polo-red-v2.png',
+    badge: null,
+    image: '/candles/bartlett-pear-v2.png',
   },
   {
     id: 6,
@@ -73,15 +106,15 @@ const products = [
     image: '/candles/tommy-girl-v2.png',
   },
   {
-    id: 7,
-    name: 'Honeysuckle',
-    scentFamily: 'SWEET / FLORAL',
-    smellsLike: 'Honeysuckle nectar with jasmine and warm vanilla.',
-    price: '$20.00',
-    reviews: 17,
+    id: 5,
+    name: 'Polo Red',
+    scentFamily: 'FRUITY / FLORAL',
+    smellsLike: 'Pear blossom, gardenia, and a base of brown sugar.',
+    price: '$24.00',
+    reviews: 19,
     rating: 5,
-    badge: null,
-    image: '/candles/honeysuckle-v3.png',
+    badge: 'BESTSELLER',
+    image: '/candles/polo-red-v2.png',
   },
   {
     id: 8,
@@ -93,6 +126,28 @@ const products = [
     rating: 5,
     badge: null,
     image: '/candles/gorgeous-gucci-v3.png',
+  },
+  {
+    id: 4,
+    name: 'Lavender',
+    scentFamily: 'HERBAL / CALMING',
+    smellsLike: 'Lavender fields, chamomile, and warm amber.',
+    price: '$20.00',
+    reviews: 21,
+    rating: 4.5,
+    badge: null,
+    image: '/candles/lavender-v4.png',
+  },
+  {
+    id: 7,
+    name: 'Honeysuckle',
+    scentFamily: 'SWEET / FLORAL',
+    smellsLike: 'Honeysuckle nectar with jasmine and warm vanilla.',
+    price: '$20.00',
+    reviews: 17,
+    rating: 5,
+    badge: null,
+    image: '/candles/honeysuckle-v3.png',
   },
 ];
 
@@ -334,13 +389,16 @@ function ProductCard({
         {product.badge && (
           <div style={{
             position: 'absolute', top: '12px', left: '12px',
-            background: 'rgba(60,58,56,0.82)',
+            background: product.badge === 'NEW'
+              ? (hovered ? 'rgba(198,40,40,0.92)' : 'rgba(60,58,56,0.82)')
+              : 'rgba(60,58,56,0.82)',
             backdropFilter: 'blur(6px)',
             padding: '5px 10px',
             fontFamily: 'Montserrat, sans-serif',
             fontSize: '9px', fontWeight: 700,
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: '#ffffff',
+            transition: 'background 0.55s ease',
           }}>
             {product.badge}
           </div>
@@ -445,8 +503,8 @@ export default function Collections() {
       }}
     >
       <div style={{
-        maxWidth: '1440px', margin: '0 auto',
-        padding: '0 clamp(16px, 4vw, 56px)',
+        maxWidth: '1600px', margin: '0 auto',
+        padding: '0 clamp(16px, 3vw, 48px)',
       }}>
 
         {/* ── Section header ── */}
@@ -496,8 +554,8 @@ export default function Collections() {
           className="collections-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 'clamp(20px, 3vw, 40px) clamp(12px, 2vw, 28px)',
+            gridTemplateColumns: 'repeat(5, 1fr)',
+            gap: 'clamp(16px, 2vw, 32px) clamp(10px, 1.5vw, 20px)',
           }}
         >
           {products.map((p, i) => (
@@ -517,6 +575,9 @@ export default function Collections() {
       )}
 
       <style>{`
+        @media (max-width: 1280px) {
+          .collections-grid { grid-template-columns: repeat(4, 1fr) !important; }
+        }
         @media (max-width: 1024px) {
           .collections-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }

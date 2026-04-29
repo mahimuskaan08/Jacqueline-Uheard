@@ -13,11 +13,12 @@ export default function Hero2() {
   const ref = useRef<HTMLElement>(null);
 
   const titleFont: React.CSSProperties = {
-    fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif',
+    fontFamily: '"Playfair Display", Georgia, serif',
     fontWeight: 700,
-    fontSize: 'clamp(56px, 10vw, 120px)',
-    letterSpacing: '-0.015em',
-    lineHeight: 1,
+    fontStyle: 'italic',
+    fontSize: 'clamp(28px, 4.5vw, 62px)',
+    letterSpacing: '0.015em',
+    lineHeight: 1.15,
   };
 
   return (
@@ -52,12 +53,13 @@ export default function Hero2() {
         >
           {/* Inline wrapper so underline width = text width exactly */}
           <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'stretch' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline' }}>
-              <span style={{ ...titleFont, color: '#C62828' }}>U</span>
-              <span style={{ ...titleFont, color: '#111111' }}>-</span>
-              <span style={{ ...titleFont, color: '#111111' }}>HEARD</span>
-            </div>
-            <div style={{ height: '3px', backgroundColor: '#C62828', width: '100%', marginTop: '14px', borderRadius: '1px' }} />
+            <span style={{
+              ...titleFont,
+              color: '#111111',
+            }}>
+              Jacqueline&rsquo;s Enchanting Candles
+            </span>
+            <div style={{ height: '2px', background: 'linear-gradient(to right, #C62828, rgba(198,40,40,0.2))', width: '100%', marginTop: '12px', borderRadius: '1px' }} />
           </div>
         </motion.div>
 

@@ -16,11 +16,12 @@ export default function Hero() {
   const candleY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
 
   const titleFont: React.CSSProperties = {
-    fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif',
+    fontFamily: '"Playfair Display", Georgia, serif',
     fontWeight: 700,
-    fontSize: 'clamp(56px, 10vw, 120px)',
-    letterSpacing: '-0.015em',
-    lineHeight: 1,
+    fontStyle: 'italic',
+    fontSize: 'clamp(30px, 4.8vw, 68px)',
+    letterSpacing: '0.02em',
+    lineHeight: 1.1,
   };
 
   return (
@@ -59,12 +60,14 @@ export default function Hero() {
         >
           {/* Inline wrapper so underline width = text width */}
           <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'stretch' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline' }}>
-              <span style={{ ...titleFont, color: '#C62828' }}>U</span>
-              <span style={{ ...titleFont, color: '#111111' }}>-</span>
-              <span style={{ ...titleFont, color: '#111111' }}>HEARD</span>
-            </div>
-            <div style={{ height: '3px', backgroundColor: '#C62828', width: '100%', marginTop: '14px', borderRadius: '1px' }} />
+            <span style={{
+              ...titleFont,
+              color: '#111111',
+              textShadow: 'none',
+            }}>
+              Jacqueline&rsquo;s Enchanting Candles
+            </span>
+            <div style={{ height: '2px', background: 'linear-gradient(to right, rgba(198,40,40,0.9), rgba(198,40,40,0.2))', width: '100%', marginTop: '12px', borderRadius: '1px' }} />
           </div>
         </motion.div>
 
@@ -75,7 +78,7 @@ export default function Hero() {
             fontStyle: 'italic',
             fontWeight: 500,
             fontSize: 'clamp(20px, 2.5vw, 31px)',
-            color: '#333333',
+            color: '#444444',
             letterSpacing: '0.07em',
             lineHeight: 1.5,
             marginTop: 'clamp(12px, 1.6vw, 18px)',

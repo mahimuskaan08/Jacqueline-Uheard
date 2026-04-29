@@ -8,14 +8,19 @@ const BG = '#ede8de';
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 const candles = [
-  { id: 1, name: 'Bartlett Pear',        category: 'Fruity Floral',   image: '/candles/journal-1.png', description: 'A refined fruity-floral composition centered around the luscious sweetness of ripe pear. Subtle floral undertones soften the fragrance, creating a fresh yet elegant atmosphere. This scent gently uplifts the mood while bringing a sense of lightness and calm to your space.' },
-  { id: 2, name: 'Coco Chanel Inspired', category: 'Floral Powdery',  image: '/candles/journal-2.png', description: 'Inspired by timeless elegance. A sophisticated blend of powdery florals, iris, and soft musk—refined, iconic, and unmistakably feminine. A candle that makes a room feel dressed.' },
-  { id: 3, name: 'Fresh Rose',           category: 'Romantic Floral', image: '/candles/journal-3.png', description: 'The Fresh Rose candle offers a complex, romantic floral fragrance that is both sweet and slightly spicy. With green, powdery undertones and fruity hints of apple, pear, and honey-like warmth, this scent embodies femininity, romance, and timeless charm.' },
-  { id: 4, name: 'Lavender',             category: 'Calming Herbal',  image: '/candles/journal-4.png', description: 'The Lavender candle carries a fresh, floral, and herbaceous scent with a slightly sweet undertone. Known for its calming and soothing aroma, it evokes tranquility, relaxation, and promotes better sleep.' },
-  { id: 5, name: 'Polo Red',             category: 'Fruity Floral',   image: '/candles/polo-red.png', description: 'This candle exudes a soft, sweet, and joyful fruity-floral fragrance. It opens with pear blossom and red berries, blooms into white gardenia, jasmine, and frangipani, and settles into a warm base of patchouli and brown sugar.' },
-  { id: 6, name: 'Tommy Girl',           category: 'Fresh Floral',    image: '/candles/journal-6.png', description: 'Inspired by a classic fragrance, this candle brings a youthful and energetic vibe. It blends crisp notes of black currant, mandarin, and apple blossom with honeysuckle, rose, mint, and violet, finishing with sandalwood, jasmine, and cedar.' },
-  { id: 7, name: 'Honeysuckle',          category: 'Sweet Floral',    image: '/candles/journal-7.png', description: 'The Honeysuckle candle features a sweet, intensely floral fragrance with honey and pollen nuances. Its intoxicating, nectarous aroma has a fresh citrusy-sweet touch, reminiscent of jasmine and vanilla.' },
-  { id: 8, name: 'Gorgeous Gucci',       category: 'Citrus Floral',   image: '/candles/gorgeous-gucci-v2.png', description: 'A luminous blend of bright citrus and soft florals that radiates confidence and effortless elegance. This candle opens with sparkling top notes, blooms into delicate petals, and rests on a warm, inviting base — a signature scent for every space.' },
+  { id: 1,  name: 'Bartlett Pear',        category: 'Fruity Floral',    mood: 'Mood Uplift & Lightness',         image: '/candles/journal-1.png',           description: 'A refined fruity-floral composition centered around the luscious sweetness of ripe pear. Subtle floral undertones soften the fragrance, creating a fresh yet elegant atmosphere. This scent gently uplifts the mood while bringing a sense of lightness and calm to your space.' },
+  { id: 2,  name: 'Coco Chanel Inspired', category: 'Floral Powdery',   mood: 'Confidence & Timeless Elegance',  image: '/candles/journal-2.png',           description: 'Inspired by timeless elegance. A sophisticated blend of powdery florals, iris, and soft musk—refined, iconic, and unmistakably feminine. A candle that makes a room feel dressed.' },
+  { id: 3,  name: 'Fresh Rose',           category: 'Romantic Floral',  mood: 'Romance & Feminine Warmth',       image: '/candles/journal-3.png',           description: 'The Fresh Rose candle offers a complex, romantic floral fragrance that is both sweet and slightly spicy. With green, powdery undertones and fruity hints of apple, pear, and honey-like warmth, this scent embodies femininity, romance, and timeless charm.' },
+  { id: 4,  name: 'Lavender',             category: 'Calming Herbal',   mood: 'Relaxation & Better Sleep',       image: '/candles/journal-4.png',           description: 'The Lavender candle carries a fresh, floral, and herbaceous scent with a slightly sweet undertone. Known for its calming and soothing aroma, it evokes tranquility, relaxation, and promotes better sleep.' },
+  { id: 5,  name: 'Polo Red',             category: 'Fruity Floral',    mood: 'Joy & Sensory Delight',           image: '/candles/polo-red.png',            description: 'This candle exudes a soft, sweet, and joyful fruity-floral fragrance. It opens with pear blossom and red berries, blooms into white gardenia, jasmine, and frangipani, and settles into a warm base of patchouli and brown sugar.' },
+  { id: 6,  name: 'Tommy Girl',           category: 'Fresh Floral',     mood: 'Energy & Youthful Radiance',      image: '/candles/journal-6.png',           description: 'Inspired by a classic fragrance, this candle brings a youthful and energetic vibe. It blends crisp notes of black currant, mandarin, and apple blossom with honeysuckle, rose, mint, and violet, finishing with sandalwood, jasmine, and cedar.' },
+  { id: 7,  name: 'Honeysuckle',          category: 'Sweet Floral',     mood: 'Warmth & Gentle Comfort',         image: '/candles/journal-7.png',           description: 'The Honeysuckle candle features a sweet, intensely floral fragrance with honey and pollen nuances. Its intoxicating, nectarous aroma has a fresh citrusy-sweet touch, reminiscent of jasmine and vanilla.' },
+  { id: 8,  name: 'Gorgeous Gucci',       category: 'Citrus Floral',    mood: 'Confidence & Effortless Grace',   image: '/candles/gorgeous-gucci-v2.png',   description: 'A luminous blend of bright citrus and soft florals that radiates confidence and effortless elegance. This candle opens with sparkling top notes, blooms into delicate petals, and rests on a warm, inviting base — a signature scent for every space.' },
+  { id: 9,  name: 'Coconut Macaroon',     category: 'Warm & Gourmand',  mood: 'Comfort & Cozy Indulgence',       image: '/candles/coconut-macaroon-v2.png',    description: 'A decadent, dessert-inspired fragrance that wraps every room in warmth and indulgence. It opens with toasted coconut and sweet vanilla cream, softens into a buttery almond heart, and settles into a rich, caramelized base that lingers long after the flame goes out.' },
+  { id: 10, name: 'Mango Madness',        category: 'Tropical Fruity',  mood: 'Vitality & Tropical Escape',      image: '/candles/mango-madness-v2.png',       description: 'Vibrant, sun-kissed, and irresistibly juicy. This candle bursts open with ripe mango and sparkling citrus, blooms into a lush tropical floral heart, and dries down to a soft, creamy base that feels like a warm breeze off the ocean.' },
+  { id: 11, name: 'Hawaiian Breeze',      category: 'Fresh & Tropical', mood: 'Freedom & Coastal Serenity',      image: '/candles/hawaiian-breeze-v2.png',     description: 'Light, airy, and effortlessly refreshing. Hawaiian Breeze opens with sea salt mist and crisp green notes, unfolds into white hibiscus and sweet coconut, and rests on a clean driftwood base — a scent that carries the ease of island living into your everyday space.' },
+  { id: 12, name: 'Jasmine',              category: 'Floral & Calming', mood: 'Calm & Quiet Elegance',           image: '/candles/jasmine-v2.png',             description: 'Pure, graceful, and deeply calming. This candle captures the delicate beauty of jasmine in full bloom — soft and intoxicating at the top, with a warm, slightly honeyed heart that settles into a clean musky base. A timeless floral that brings quiet elegance to any room.' },
+  { id: 13, name: 'Berry Berry',          category: 'Sweet & Fruity',   mood: 'Playfulness & Feel-Good Energy',  image: '/candles/berry-berry.png',         description: 'Bold, bright, and irresistibly sweet. Berry Berry opens with a burst of ripe strawberry and blackberry, deepens into a lush mixed-berry heart, and settles into a soft, sugared base that feels like summer in a jar. A cheerful, feel-good scent that fills the room with warmth and color.' },
 ];
 
 /* ─── Icons ──────────────────────────────────────────────────────────────── */
@@ -49,7 +54,7 @@ export default function Journal() {
 
   const features = [
     { icon: <IconScent />,  label: candle.category },
-    { icon: <IconLeaf />,   label: 'Stress Relief & Mood Uplift' },
+    { icon: <IconLeaf />,   label: candle.mood },
     { icon: <IconClock />,  label: '45–50 Hours Burn Time' },
     { icon: <IconDrop />,   label: 'Hand-Poured in Small Batches' },
     { icon: <IconCandle />, label: 'Premium Essential Oils' },
@@ -72,28 +77,28 @@ export default function Journal() {
           </p>
         </div>
 
-        <div className="journal-grid" style={{ display: 'grid', gridTemplateColumns: '175px 1fr 290px', gap: '0', alignItems: 'start' }}>
+        <div className="journal-grid" style={{ display: 'grid', gridTemplateColumns: '175px 1fr 270px', gap: '0', alignItems: 'start' }}>
 
           {/* ══ LEFT — collection nav ══ */}
           <div style={{ paddingTop: '6px', paddingRight: '32px' }}>
-            <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '14px', fontWeight: 800, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#000000', margin: '0 0 28px' }}>
+            <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '11px', fontWeight: 800, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#000000', margin: '0 0 16px' }}>
               Our Collection
             </p>
 
-            <div style={{ position: 'relative' }}>
-              <div style={{ position: 'absolute', left: '7px', top: '16px', bottom: '16px', width: '1.5px', background: 'rgba(0,0,0,0.18)' }} />
+            <div style={{ position: 'relative', maxHeight: 'clamp(500px, 75vh, 820px)', overflowY: 'auto', paddingRight: '4px' }}>
+              <div style={{ position: 'absolute', left: '6px', top: '10px', bottom: '10px', width: '1.5px', background: 'rgba(0,0,0,0.18)' }} />
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {candles.map((c, i) => (
                   <button
                     key={c.id}
                     onClick={() => go(i)}
-                    style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '18px 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '9px 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}
                   >
-                    <div style={{ width: '15px', height: '15px', borderRadius: '50%', flexShrink: 0, border: active === i ? `2px solid ${G}` : '1.5px solid rgba(0,0,0,0.30)', background: active === i ? G : 'transparent', transition: 'all 0.3s ease', zIndex: 1 }} />
-                    <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '17px', fontWeight: 700, color: active === i ? G : '#111111', letterSpacing: '0.05em', flexShrink: 0, minWidth: '28px', transition: 'color 0.3s ease' }}>
+                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', flexShrink: 0, border: active === i ? `2px solid ${G}` : '1.5px solid rgba(0,0,0,0.30)', background: active === i ? G : 'transparent', transition: 'all 0.3s ease', zIndex: 1 }} />
+                    <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '12px', fontWeight: 700, color: active === i ? G : '#111111', letterSpacing: '0.05em', flexShrink: 0, minWidth: '22px', transition: 'color 0.3s ease' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: active === i ? '20px' : '18px', fontWeight: active === i ? 800 : 700, color: active === i ? G : '#0a0a0a', lineHeight: 1.3, transition: 'all 0.3s ease' }}>
+                    <span style={{ fontFamily: 'Montserrat, sans-serif', fontSize: active === i ? '14px' : '13px', fontWeight: active === i ? 800 : 600, color: active === i ? G : '#0a0a0a', lineHeight: 1.3, transition: 'all 0.3s ease' }}>
                       {c.name}
                     </span>
                   </button>
@@ -103,7 +108,7 @@ export default function Journal() {
           </div>
 
           {/* ══ CENTER — image + nav ══ */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '-80px', zIndex: 1 }}>
             <div style={{ position: 'relative', width: '100%', height: 'clamp(600px, 80vh, 860px)', borderRadius: '2px', overflow: 'hidden', flexShrink: 0 }}>
               <AnimatePresence mode="sync">
                 <motion.div
@@ -160,7 +165,7 @@ export default function Journal() {
           </div>
 
           {/* ══ RIGHT — scent panel ══ */}
-          <div style={{ paddingTop: '6px', paddingLeft: '40px' }}>
+          <div style={{ paddingTop: '6px', paddingLeft: '40px', position: 'relative', zIndex: 2 }}>
             <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '11px', fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase', color: G, margin: '0 0 14px' }}>
               The Scent
             </p>

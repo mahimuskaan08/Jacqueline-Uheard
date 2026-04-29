@@ -112,7 +112,7 @@ export default function OurStory() {
               boxShadow: '0 12px 48px rgba(0,0,0,0.11)',
             }}>
               <Image
-                src="/ourstory-img-v2.png"
+                src="/ourstory-img-v3.png"
                 alt="Our Story — Jacqueline's Enchanting Candles"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center bottom' }}

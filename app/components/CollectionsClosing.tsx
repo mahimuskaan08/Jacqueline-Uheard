@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function CollectionsClosing() {
   return (
     <section style={{
@@ -7,14 +5,11 @@ export default function CollectionsClosing() {
       width: '100%',
       minHeight: '100vh',
       overflow: 'hidden',
+      backgroundImage: 'url(/collections-closing-bg-v4.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundRepeat: 'no-repeat',
     }}>
-      <Image
-        src="/collections-closing-bg-v2.png"
-        alt="With Love By Jacqueline"
-        fill
-        style={{ objectFit: 'cover', objectPosition: 'center center' }}
-        sizes="100vw"
-      />
 
       {/* 20% white overlay = 80% image visibility */}
       <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.20)' }} />
