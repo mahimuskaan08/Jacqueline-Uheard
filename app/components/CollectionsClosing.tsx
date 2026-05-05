@@ -5,7 +5,7 @@ export default function CollectionsClosing() {
       width: '100%',
       minHeight: '100vh',
       overflow: 'hidden',
-      backgroundImage: 'url(/collections-closing-bg-v4.png)',
+      backgroundImage: 'url(/collections-closing-bg-v5.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat',
