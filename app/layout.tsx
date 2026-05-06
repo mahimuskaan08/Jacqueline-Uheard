@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -30,7 +31,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full scroll-smooth">
-      <body className="min-h-full antialiased bg-white text-[#434343] overflow-x-hidden">
+      <body className="min-h-full antialiased bg-white text-[#434343] overflow-x-hidden" style={{ maxWidth: '100vw' }}>
         {children}
       </body>
     </html>

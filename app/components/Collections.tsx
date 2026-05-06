@@ -332,7 +332,7 @@ function ProductCard({
       ref={cardRef}
       initial={{ opacity: 0, y: 28 }}
       animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.72, delay: (index % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.72, delay: (index % 5) * 0.08, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{ cursor: 'pointer' }}
@@ -468,9 +468,13 @@ function ProductCard({
 
         <p style={{
           fontFamily: '"Playfair Display", Georgia, serif',
-          fontSize: '13px', fontStyle: 'italic',
+          fontSize: 'clamp(11px, 1vw, 13px)', fontStyle: 'italic',
           fontWeight: 400, color: '#777',
           lineHeight: 1.5, margin: '0 0 10px',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
         }}>
           Smells like: {product.smellsLike}
         </p>
@@ -582,9 +586,12 @@ export default function Collections() {
           .collections-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
         @media (max-width: 768px) {
-          .collections-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .collections-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px 10px !important; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 430px) {
+          .collections-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px 8px !important; }
+        }
+        @media (max-width: 360px) {
           .collections-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

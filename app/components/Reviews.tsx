@@ -135,7 +135,7 @@ export default function Reviews() {
         width: '100%',
         overflow: 'hidden',
         padding: 'clamp(52px, 6vw, 80px) 0 clamp(48px, 6vw, 72px)',
-        minHeight: '560px',
+        minHeight: 'clamp(480px, 70vh, 680px)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

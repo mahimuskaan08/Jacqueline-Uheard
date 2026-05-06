@@ -128,10 +128,11 @@ export function SimpleHeader() {
         </nav>
 
         {/* RIGHT — CTA buttons */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: 'auto', flexShrink: 0 }}>
-          {/* CONTACT — outlined white */}
+        <div className="header-cta" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: 'auto', flexShrink: 0 }}>
+          {/* CONTACT — hidden on mobile */}
           <a
             href="/#contact"
+            className="header-contact-btn"
             style={{
               fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif',
               fontSize: '11px',
@@ -161,7 +162,7 @@ export function SimpleHeader() {
             Contact
           </a>
 
-          {/* SHOP NOW — red solid */}
+          {/* SHOP NOW — always visible */}
           <a
             href="/collections"
             style={{
@@ -172,7 +173,7 @@ export function SimpleHeader() {
               textTransform: 'uppercase',
               color: '#ffffff',
               textDecoration: 'none',
-              padding: '8px 20px',
+              padding: '8px 16px',
               borderRadius: '100px',
               background: '#C62828',
               border: '1px solid transparent',
@@ -185,6 +186,12 @@ export function SimpleHeader() {
             Shop Now
           </a>
         </div>
+
+        <style>{`
+          @media (max-width: 640px) {
+            .header-contact-btn { display: none !important; }
+          }
+        `}</style>
       </motion.header>
 
       {/* Mobile fullscreen menu */}

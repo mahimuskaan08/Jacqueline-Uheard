@@ -80,7 +80,7 @@ export default function OurStory() {
             </motion.div>
 
             {/* Body paragraph */}
-            <motion.p {...fadeUp(0.2)} style={{ ...bodyStyle, marginBottom: 'clamp(24px, 3vw, 36px)' }}>
+            <motion.p {...fadeUp(0.2)} className="story-body" style={{ ...bodyStyle, marginBottom: 'clamp(24px, 3vw, 36px)' }}>
               I began my candle journey in the quiet comfort of my own kitchen—where curiosity slowly turned into craft, and passion found its purpose. What started as a simple love for beautifully scented candles soon became something deeper; I found myself drawn to fragrances that felt just right, each one evoking a memory, a mood, a moment. Then one day, a thought sparked—<em style={{ fontStyle: 'italic', color: '#333' }}>why not create my own?</em> That moment led me to take a candle-making course, where everything finally clicked. Inspired and determined, I returned home, gathered everything I needed, and began creating. From that very first pour, Jacqueline&rsquo;s Enchanting Candles was born—and what started as a small idea quickly grew into something meaningful. Today, every candle is hand-poured with care, designed to bring warmth, calm, and story into every space.
             </motion.p>
 
@@ -103,7 +103,7 @@ export default function OurStory() {
 
           {/* ══ RIGHT: tall editorial image ══ */}
           <motion.div {...fadeUp(0.16)} style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{
+            <div className="story-image-wrap" style={{
               position: 'relative',
               width: '100%',
               aspectRatio: '2 / 3',
@@ -115,7 +115,8 @@ export default function OurStory() {
                 src="/ourstory-img-v4.png"
                 alt="Our Story — Jacqueline's Enchanting Candles"
                 fill
-                style={{ objectFit: 'cover', objectPosition: 'center bottom' }}
+                className="story-img"
+                style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
                 sizes="(max-width: 860px) 100vw, 42vw"
               />
             </div>
@@ -142,6 +143,22 @@ export default function OurStory() {
           }
           .story-cols > div:first-child {
             max-width: 100% !important;
+          }
+          .story-body {
+            text-align: justify !important;
+          }
+          .story-image-wrap {
+            aspect-ratio: 3/4 !important;
+            max-height: 520px;
+          }
+          .story-img {
+            object-position: center 10% !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .story-image-wrap {
+            aspect-ratio: 4/5 !important;
+            max-height: 440px;
           }
         }
       `}</style>

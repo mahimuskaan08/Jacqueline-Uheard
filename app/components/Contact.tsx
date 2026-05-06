@@ -50,7 +50,7 @@ export default function Contact() {
 
           <h2 style={{
             fontFamily: '"Playfair Display", Georgia, serif',
-            fontSize: 'clamp(40px, 7vw, 88px)',
+            fontSize: 'clamp(30px, 7vw, 88px)',
             fontWeight: 700, color: '#0f0f0f',
             lineHeight: 1.0, margin: '0 0 16px',
             letterSpacing: '-0.01em',
@@ -283,7 +283,8 @@ function ContactRow({
           fontSize: '14px', fontWeight: 500,
           color: '#0f0f0f', lineHeight: 1.65,
           margin: 0,
-          whiteSpace: multiline ? 'pre-line' : 'nowrap',
+          whiteSpace: multiline ? 'pre-line' : 'normal',
+          wordBreak: 'break-word',
         }}>
           {value}
         </p>

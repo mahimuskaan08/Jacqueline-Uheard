@@ -92,7 +92,7 @@ export default function Footer() {
             </p>
 
             {/* Socials */}
-            <div style={{ display: 'flex', gap: '18px' }}>
+            <div className="footer-socials" style={{ display: 'flex', gap: '18px' }}>
               {socialLinks.map(s => (
                 <a
                   key={s.label}
@@ -259,7 +259,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div style={{ borderTop: '1px solid #eaeaea' }}>
-        <div style={{
+        <div className="footer-bottom" style={{
           maxWidth: '1300px', margin: '0 auto',
           padding: '20px clamp(16px, 4vw, 56px)',
           display: 'flex', alignItems: 'center',
@@ -273,7 +273,7 @@ export default function Footer() {
             © 2026 U-HEARD. All rights reserved.
           </p>
 
-          <div style={{ display: 'flex', gap: '24px' }}>
+          <div className="footer-bottom-links" style={{ display: 'flex', gap: '24px' }}>
             {[{ label: 'Privacy Policy', href: '/privacy' }, { label: 'Terms & Conditions', href: '/terms' }, { label: 'Contact', href: '/#contact' }].map(item => (
               <a
                 key={item.label}
@@ -308,6 +308,24 @@ export default function Footer() {
             text-align: center;
           }
           .footer-grid ul {
+            align-items: center;
+          }
+          .footer-socials {
+            justify-content: center;
+          }
+          .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+            gap: 16px;
+          }
+          .footer-bottom-links {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px !important;
+          }
+          .footer-subscribe form {
+            display: flex;
+            flex-direction: column;
             align-items: center;
           }
         }

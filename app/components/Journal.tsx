@@ -80,7 +80,7 @@ export default function Journal() {
         <div className="journal-grid" style={{ display: 'grid', gridTemplateColumns: '175px 1fr 270px', gap: '0', alignItems: 'start' }}>
 
           {/* ══ LEFT — collection nav ══ */}
-          <div style={{ paddingTop: '6px', paddingRight: '32px' }}>
+          <div className="journal-left" style={{ paddingTop: '6px', paddingRight: '32px' }}>
             <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '11px', fontWeight: 800, letterSpacing: '0.28em', textTransform: 'uppercase', color: '#000000', margin: '0 0 16px' }}>
               Our Collection
             </p>
@@ -108,8 +108,8 @@ export default function Journal() {
           </div>
 
           {/* ══ CENTER — image + nav ══ */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '-80px', zIndex: 1 }}>
-            <div style={{ position: 'relative', width: '100%', height: 'clamp(600px, 80vh, 860px)', borderRadius: '2px', overflow: 'hidden', flexShrink: 0 }}>
+          <div className="journal-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '-80px', zIndex: 1 }}>
+            <div className="journal-image-wrap" style={{ position: 'relative', width: '100%', height: 'clamp(480px, 80vh, 860px)', borderRadius: '2px', overflow: 'hidden', flexShrink: 0 }}>
               <AnimatePresence mode="sync">
                 <motion.div
                   key={active}
@@ -215,10 +215,15 @@ export default function Journal() {
 
       <style>{`
         @media (max-width: 1024px) {
-          .journal-grid { grid-template-columns: 150px 1fr 250px !important; gap: clamp(14px, 2vw, 28px) !important; }
+          .journal-grid { grid-template-columns: 140px 1fr 230px !important; gap: clamp(12px, 2vw, 24px) !important; }
         }
         @media (max-width: 700px) {
           .journal-grid { grid-template-columns: 1fr !important; }
+          .journal-center { margin-right: 0 !important; }
+          .journal-image-wrap { height: clamp(340px, 70vw, 520px) !important; }
+        }
+        @media (max-width: 480px) {
+          .journal-left { display: none !important; }
         }
       `}</style>
     </section>

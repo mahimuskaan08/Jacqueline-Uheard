@@ -15,11 +15,11 @@ export default function AnnouncementBar() {
   if (dismissed) return null;
 
   return (
-    <div className="relative flex items-center justify-center px-10 py-2.5 text-white text-[11px] font-semibold tracking-[1.5px] uppercase" style={{ background: '#C62026' }}>
-      <span>{messages[idx]}</span>
+    <div className="relative flex items-center justify-center py-2.5 text-white text-[11px] font-semibold tracking-[1.5px] uppercase" style={{ background: '#C62026', padding: '10px clamp(36px, 8vw, 48px)' }}>
+      <span className="text-center leading-snug" style={{ fontSize: 'clamp(9px, 2.2vw, 11px)', letterSpacing: 'clamp(0.05em, 0.12em, 0.15em)' }}>{messages[idx]}</span>
 
-      {/* Dot nav */}
-      <div className="absolute right-8 flex gap-2 items-center">
+      {/* Dot nav — hidden on very small screens */}
+      <div className="absolute right-3 sm:right-8 hidden xs:flex gap-1.5 sm:gap-2 items-center" style={{ display: 'flex' }}>
         {messages.map((_, i) => (
           <button
             key={i}
@@ -34,7 +34,7 @@ export default function AnnouncementBar() {
       <button
         onClick={() => setDismissed(true)}
         aria-label="Dismiss"
-        className="absolute left-4 text-white/70 hover:text-white transition-colors"
+        className="absolute left-3 sm:left-4 text-white/70 hover:text-white transition-colors"
       >
         <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
           <path d="M1 1l9 9M10 1L1 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
