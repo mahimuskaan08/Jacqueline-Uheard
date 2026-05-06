@@ -63,6 +63,7 @@ export default function Journal() {
   return (
     <section
       id="journal"
+      className="journal-section"
       style={{ background: BG, overflow: 'hidden', padding: 'clamp(52px, 6vw, 80px) 0 clamp(52px, 6vw, 72px)' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -214,8 +215,13 @@ export default function Journal() {
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .journal-grid { grid-template-columns: 140px 1fr 230px !important; gap: clamp(12px, 2vw, 24px) !important; }
+        /* Tablet / small laptop: fix sidebar clipping */
+        @media (min-width: 701px) and (max-width: 1024px) {
+          .journal-section { overflow: visible !important; }
+          .journal-grid { grid-template-columns: 115px 1fr 195px !important; gap: clamp(8px, 1.5vw, 16px) !important; }
+          .journal-center { margin-right: 0 !important; }
+          .journal-left { padding-right: 10px !important; z-index: 30 !important; }
+          .journal-left span { font-size: 11px !important; }
         }
         @media (max-width: 700px) {
           .journal-grid { grid-template-columns: 1fr !important; }

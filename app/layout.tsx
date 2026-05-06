@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/ui/cart-drawer";
 
 export const metadata: Metadata = {
   title: "U-Heard | Handcrafted Candles & Home Fragrance",
@@ -32,7 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body className="min-h-full antialiased bg-white text-[#434343] overflow-x-hidden" style={{ maxWidth: '100vw' }}>
-        {children}
+        <CartProvider>
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

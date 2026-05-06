@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useCart } from '@/lib/cart';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -14,6 +15,7 @@ const navLinks = [
 export function SimpleHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { count, openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => {
@@ -111,7 +113,7 @@ export function SimpleHeader() {
 
         {/* CENTER — nav links, absolutely centered on page */}
         <nav
-          className="hidden md:flex"
+          className="hidden xl:flex"
           style={{
             position: 'absolute',
             left: '50%',
@@ -162,33 +164,55 @@ export function SimpleHeader() {
             Contact
           </a>
 
-          {/* SHOP NOW — always visible */}
-          <a
-            href="/collections"
+          {/* CART — always visible */}
+          <button
+            onClick={openCart}
+            aria-label="Open cart"
             style={{
-              fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif',
-              fontSize: '11px',
-              fontWeight: 600,
-              letterSpacing: '0.09em',
-              textTransform: 'uppercase',
-              color: '#ffffff',
-              textDecoration: 'none',
+              position: 'relative',
+              display: 'flex', alignItems: 'center', gap: '7px',
               padding: '8px 16px',
-              borderRadius: '100px',
               background: '#C62828',
-              border: '1px solid transparent',
-              transition: 'filter 0.25s ease',
-              whiteSpace: 'nowrap',
+              border: '1px solid #C62828',
+              borderRadius: '100px',
+              cursor: 'pointer',
+              color: '#ffffff',
+              transition: 'filter 0.22s ease',
+              flexShrink: 0,
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.filter = 'brightness(1.12)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.filter = 'brightness(1)'; }}
+            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.filter = 'brightness(1.12)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.filter = 'brightness(1)'; }}
           >
-            Shop Now
-          </a>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 001.95 1.61h9.72a2 2 0 001.95-1.61L23 6H6"/>
+            </svg>
+            <span style={{
+              fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif',
+              fontSize: '11px', fontWeight: 700,
+              letterSpacing: '0.09em', textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
+            }}>
+              Cart
+            </span>
+            {count > 0 && (
+              <span style={{
+                position: 'absolute', top: '-6px', right: '-6px',
+                background: '#111111', color: '#ffffff',
+                borderRadius: '50%', width: '18px', height: '18px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: 'Montserrat, sans-serif',
+                fontSize: '9px', fontWeight: 700, lineHeight: 1,
+                pointerEvents: 'none',
+              }}>
+                {count > 9 ? '9+' : count}
+              </span>
+            )}
+          </button>
         </div>
 
         <style>{`
-          @media (max-width: 640px) {
+          @media (max-width: 1024px) {
             .header-contact-btn { display: none !important; }
           }
         `}</style>

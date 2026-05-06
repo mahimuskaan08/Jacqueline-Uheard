@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '@/lib/cart';
 
 /* ─── Data ───────────────────────────────────────────────────────────────── */
 const products = [
@@ -315,6 +316,18 @@ function ProductCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const { addItem } = useCart();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      priceNum: parseFloat(product.price.replace('$', '')),
+      image: product.image,
+    });
+  };
 
   useEffect(() => {
     const el = cardRef.current;
@@ -407,7 +420,7 @@ function ProductCard({
         {/* Cart button */}
         <button
           aria-label="Add to bag"
-          onClick={e => e.stopPropagation()}
+          onClick={handleAddToCart}
           style={{
             position: 'absolute', bottom: '12px', right: '12px',
             width: '34px', height: '34px',
@@ -479,13 +492,18 @@ function ProductCard({
           Smells like: {product.smellsLike}
         </p>
 
-        <p style={{
-          fontFamily: 'Montserrat, sans-serif',
-          fontSize: '14px', fontWeight: 600,
-          color: '#111111', margin: 0,
-        }}>
-          {product.price}
-        </p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginTop: '2px' }}>
+          <p style={{
+            fontFamily: 'Montserrat, sans-serif',
+            fontSize: '14px', fontWeight: 600,
+            color: '#111111', margin: 0, flexShrink: 0,
+          }}>
+            {product.price}
+          </p>
+          <button className="atc-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+        </div>
       </div>
     </motion.div>
   );
@@ -579,6 +597,30 @@ export default function Collections() {
       )}
 
       <style>{`
+        .atc-btn {
+          padding: 7px 13px;
+          background: transparent;
+          border: 1px solid #111111;
+          border-radius: 2px;
+          font-family: Montserrat, sans-serif;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #111111;
+          cursor: pointer;
+          white-space: nowrap;
+          flex-shrink: 0;
+          transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+        .atc-btn:hover {
+          background: #C62828;
+          border-color: #C62828;
+          color: #ffffff;
+        }
+        @media (max-width: 640px) {
+          .atc-btn { padding: 6px 10px; font-size: 8px; letter-spacing: 0.09em; }
+        }
         @media (max-width: 1280px) {
           .collections-grid { grid-template-columns: repeat(4, 1fr) !important; }
         }

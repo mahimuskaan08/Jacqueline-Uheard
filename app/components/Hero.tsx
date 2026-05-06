@@ -26,7 +26,7 @@ export default function Hero() {
     <section ref={ref} className="hero-section relative w-full overflow-hidden">
 
       {/* ── Video background ── */}
-      <div className="hero-media-bg absolute inset-0 z-0" aria-hidden="true">
+      <div className="hero-media-bg z-0" aria-hidden="true">
         <motion.div
           style={isMobile
             ? { position: 'absolute', inset: 0 }
@@ -101,6 +101,10 @@ export default function Hero() {
         .hero-section {
           min-height: 100vh;
           min-height: 100svh;
+        }
+        .hero-media-bg {
+          position: absolute;
+          inset: 0;
         }
 
         /* ══════════════════════════════════════════════

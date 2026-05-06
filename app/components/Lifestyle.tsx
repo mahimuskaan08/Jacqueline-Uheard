@@ -58,6 +58,18 @@ export default function Lifestyle() {
           gap: 20px;
         }
 
+        /* ══ Tablet + laptop 641–1280px: aspect-ratio container, text pinned to top center ══ */
+        @media (min-width: 641px) and (max-width: 1280px) {
+          .lifestyle-inner {
+            min-height: 0;
+            aspect-ratio: 4 / 3;
+          }
+          .lifestyle-content {
+            justify-content: flex-start;
+            padding: clamp(40px, 7vh, 72px) clamp(20px, 6vw, 80px) clamp(24px, 4vh, 48px);
+          }
+        }
+
         /* ══ Mobile ≤ 640px: aspect-ratio container, text still overlaid ══
            No min-height means no blank space.
            4:3 box + cover = full image visible, zero letterboxing.  */

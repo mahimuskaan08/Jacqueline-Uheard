@@ -52,19 +52,25 @@ export default function CollectionsClosing() {
            from 4:5 (portrait-ish) ratio — hugs the image,
            no blank space, cover shows face + action area.
         ══════════════════════════════════════════════ */
-        /* Tablets (641–1024px): full-screen cover, original look */
-        @media (min-width: 641px) and (max-width: 1024px) {
+        /* Tablet + laptop (641–1280px): aspect-ratio container, zero cropping */
+        @media (min-width: 641px) and (max-width: 1280px) {
           .closing-section {
+            min-height: 0 !important;
+            aspect-ratio: 4 / 3;
             background-position: center top !important;
+          }
+          .closing-sig {
+            font-size: clamp(14px, 2vw, 22px) !important;
           }
         }
 
-        /* Mobile ≤ 640px: aspect-ratio container, no blank space */
+        /* Mobile ≤ 640px: image is 1983×793 (landscape 5:2), contain shows it fully */
         @media (max-width: 640px) {
           .closing-section {
             min-height: 0 !important;
-            aspect-ratio: 3 / 4;
-            background-position: center top !important;
+            aspect-ratio: 1983 / 793 !important;
+            background-size: contain !important;
+            background-position: center center !important;
           }
           .closing-sig {
             font-size: 14px !important;
