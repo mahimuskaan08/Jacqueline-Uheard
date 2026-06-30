@@ -92,7 +92,7 @@ export default function Contact() {
           >
             <iframe
               title="U-Heard Location"
-              src="https://www.google.com/maps?q=475+William+St,+East+Orange,+NJ+07017&output=embed"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.2282%2C40.7626%2C-74.2082%2C40.7726&layer=mapnik&marker=40.7676%2C-74.2182"
               width="100%"
               height="100%"
               style={{
@@ -105,7 +105,6 @@ export default function Contact() {
               }}
               allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             />
 
           </motion.div>
