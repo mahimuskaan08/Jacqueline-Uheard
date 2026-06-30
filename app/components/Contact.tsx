@@ -2,6 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const LeafletMap = dynamic(() => import('./LeafletMap'), { ssr: false });
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 22 },
@@ -90,22 +93,7 @@ export default function Contact() {
               background: '#f0eeeb',
             }}
           >
-            <iframe
-              title="U-Heard Location"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.2282%2C40.7626%2C-74.2082%2C40.7726&layer=mapnik&marker=40.7676%2C-74.2182"
-              width="100%"
-              height="100%"
-              style={{
-                border: 'none',
-                display: 'block',
-                position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
-              }}
-              allowFullScreen
-              loading="lazy"
-            />
+            <LeafletMap />
 
           </motion.div>
 
